@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Journal Bot - AI-Powered Reflection</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📝 Daily Journal Bot</h1>
+            <p class="subtitle">Share your day, receive AI-powered reflections</p>
+        </header>
+
+        <main class="main-content">
+            <div class="journal-card">
+                <form id="journalForm" class="journal-form">
+                    <div class="form-group">
+                        <label for="journalEntry" class="form-label">How was your day?</label>
+                        <textarea 
+                            id="journalEntry" 
+                            name="text" 
+                            placeholder="Tell me about your day... What happened? How did you feel? What are you thinking about?"
+                            rows="6"
+                            maxlength="1000"
+                            required
+                        ></textarea>
+                        <div class="character-count">
+                            <span id="charCount">0</span>/1000 characters
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span class="btn-text">Get AI Reflection</span>
+                        <span class="btn-spinner" id="spinner">🤖</span>
+                    </button>
+                </form>
+            </div>
+
+            <div class="response-card" id="responseCard" style="display: none;">
+                <div class="response-header">
+                    <h3>Your AI Reflection</h3>
+                    <span class="sentiment-badge" id="sentimentBadge"></span>
+                </div>
+                <div class="response-content">
+                    <div class="reflection-text" id="reflectionText"></div>
+                    <div class="confidence-bar">
+                        <div class="confidence-label">Confidence: <span id="confidenceText"></span></div>
+                        <div class="confidence-meter">
+                            <div class="confidence-fill" id="confidenceFill"></div>
+                        </div>
+                    </div>
+                </div>
+                <button class="new-entry-btn" id="newEntryBtn">Write Another Entry</button>
+            </div>
+
+            <div class="error-card" id="errorCard" style="display: none;">
+                <div class="error-content">
+                    <h3>⚠️ Something went wrong</h3>
+                    <p id="errorMessage"></p>
+                    <button class="try-again-btn" id="tryAgainBtn">Try Again</button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Built with ❤️ using FastAPI and Transformers by Ella F</p>
+        </footer>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html> 
